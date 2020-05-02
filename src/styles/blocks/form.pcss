@@ -1,0 +1,107 @@
+.form{
+
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+
+    &__row{
+        display: flex;
+        margin-bottom: 5%;
+        justify-content: space-between;
+    }
+
+    &__block{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 45%;
+
+        &_last{
+             width: 100%;
+        }
+    }
+
+    &__title{
+        opacity: 0.3;
+        font-family: "Open Sans";
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 30px;
+        margin-left: 47px;
+        margin-bottom: 15px;
+
+    }
+
+    &__part{
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #464d62;
+        padding-bottom: 3px;
+
+        
+
+        &:hover{
+            border-bottom-color: #9300e8;
+           
+        }
+
+        &:hover .form__icon{
+            fill: #9300e8;
+            opacity: 0.8
+        }
+        
+
+    }
+
+    &__icon{
+        width: 30px;
+        height: 30px;
+        opacity: 0.3;
+
+        
+    }
+
+    &__input{
+        margin-left: 17px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 48px;
+        width: 100%;
+
+        &:checked~.form__icon{
+            fill: #9300e8;
+            
+           
+        }
+
+        
+        
+
+        &_last{
+            width: 100%;
+            height: 60px;
+            line-height: 22px;
+           padding-top: 15px;
+        }
+    }
+
+    &__button{
+        width: 35%;
+        border-radius: 40px 5px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        background-color: #ffffff;
+        background-image: linear-gradient(to right, #9300e8 0%, #4a00ed 100%);
+        color: #ffffff;
+        font-family: "Open Sans";
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 48px;
+        text-transform: uppercase;
+        margin-top: 3%;
+        cursor: pointer;
+    }
+
+
+
+}

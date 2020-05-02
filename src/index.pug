@@ -1,7 +1,7 @@
 include ./mixins.pug
 
 <!DOCTYPE html>
-html(lang="ru)
+html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -10,8 +10,225 @@ html(lang="ru)
   body
     .wrapper
       .maincontent
-        +image('/content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+        .general_section
+          section.general
+            .container
+              header.header
+                a.header__logo(href='#') АК
+                nav.nav
+                  - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+                  ul.nav__list
+                    each item in items
+                      li.nav__item
+                        a(href='#').nav__link #{item}
+                ul.social__list
+                  - var icons = ['insta', 'vk', 'github']
+                    each item in icons
+                      li.social__item
+                        a(href='').social__link
+                          +icon(`${item}`, 'social__icon', '#464d62')
+              .general__content
+                .general__part
+                  span.general__preview Личный сайт<br>веб разработчика
+                  span.general__name Камаевой Аси
+                
+                a(href='').general__scroll 
+                  span.general__scroll_text Скролл
+                  .general__scroll_img
+                    +icon('scroll', 'general__scroll_link', '#464d62')         
+
+          section.about
+            .container
+              .about__content
+                .user
+                  .user__img
+                    +image('content/user.jpg', 'user__pic')
+                  ul.user__desc
+                    -
+                      var user =[
+                        ['Проживаю', 'в Подмосковье'],
+                        ['Возраст', '29 лет'],
+                        ['Родилась', '29 марта 1991г.'],
+                      ]
+                    each item in user
+                      li.user__string
+                        span.user__string_left #{item[0]}
+                        span.user__string_right #{item[1]}
+
+
+                .about__right
+
+                  p.about__preview Привет, меня зовут
+                  h2.about__name Камаева Ася
+                  p.about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                  p.about__ps Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+        section.skills
+          .container
+            .skills__part
+              .skills__img
+                +image('content/backpack.png', 'skills__image')
+              .skills__content
+                h3.skills__title Чем я могу быть полезна вам
+                article.skills__text Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+
+                ul.skills__unit
+                  li.skills__string Front-end
+                    ul.skills__list
+                      - var skills = ['HTML5', 'CSS3', 'JavaScript', 'Jquery и Vue.js']
+                      each item in skills
+                        li.skills__item
+                          .skill
+                            svg(viewBox="0 0 100 100").skill__circle-shape
+                              circle(cx="50" cy="50" r="40").skill__circle.skill__circle_under
+                              circle(cx="50" cy="50" r="40" ref="color-circle" stroke="url(#gradient)" transform='rotate(325 50 50)').skill__circle.skill__circle_above
+                              linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
+                                stop(offset="0%" stop-color="#5500f2")
+                                stop(offset="100%" stop-color="#8f00ef")
+                            span.skills__name #{item}
+                          
+                  li.skills__string Workflow
+                    ul.skills__list
+                      - var skills = ['GIT', 'Terminal', 'Gulp', 'Webpack']
+                      each item in skills
+                        li.skills__item
+                          .skill
+                            svg(viewBox="0 0 100 100").skill__circle-shape
+                              circle(cx="50" cy="50" r="40").skill__circle.skill__circle_under
+                              circle(cx="50" cy="50" r="40" ref="color-circle" stroke="url(#gradient)" transform='rotate(325 50 50)').skill__circle.skill__circle_above
+                              linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
+                                stop(offset="0%" stop-color="#5500f2")
+                                stop(offset="100%" stop-color="#8f00ef")
+                            span.skills__name #{item}
+                
+                
+
+
+        section.works
+          .container
+            h2.works__title Мои работы
+            .works__content
+              .works__left
+                .works__preview
+                  +image('content/preview.png', 'preview__image')
+                .works__control
+                  a(href='').works__control_up.works__control_block &and;
+                  a(href='').works__control_down.works__control_block &or;
+              .works__number 4
+              .works__info
+                ul.works__list
+                  - var list = ['HTML', 'CSS', 'JavaScript']
+                  each item in list
+                    li.works__item  
+                      a(href='#').works__item_name #{item}
+
+                
+                .works__caption Сайт школы образования
+                .works__desc Эта дама проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                a(href='#').works__link 
+                  +icon('link', 'works__icon', '#586ed3')
+                  .works__link_title Посмотреть сайт
+
+        .feeds__budda
+          section.feeds    
+            .container
+              .feeds__content
+                .feeds__caption
+                  h2.feeds__title Что обо мне говорят
+                  .feeds__controls
+                    a(href='#').feeds__btn.feeds__btn_left &lt;
+                    a(href='#').feeds__btn.feeds__btn_right &gt;
+                .feeds__unit
+                  .feeds__block 
+                    .feeds__block_left
+                      +icon('quote', 'feeds__quote', '#464d62')
+                    .feeds__block_right
+                      .feeds__text Эта дама проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                      .feeds__user
+                        .feeds__img
+                          +image('content/feeds1.png', 'feeds__icon')
+                        .feeds__contact
+                          .feeds__name Ковальчук Дмитрий
+                          .feeds__position Основатель Loftschool
+                  .feeds__block 
+                    .feeds__block_left
+                      +icon('quote', 'feeds__quote', '#464d62')
+                    .feeds__block_right
+                      .feeds__text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                      .feeds__user
+                        .feeds__img
+                          +image('content/feeds2.png', 'feeds__icon')
+                        .feeds__contact
+                          .feeds__name Владимир Сабанцев
+                          .feeds__position Преподаватель
+
+          section.contacts
+            .container
+              .contacts__content
+                h2.contacts__title Связаться со мной
+
+                form.form
+                  .form__row
+                    label.form__block
+                      span.form__title Введите ваше имя
+                      .form__part
+                        +icon('user', 'form__icon')
+                        input.form__input(type="text" placeholder="Ковальчук Дмитрий" name="login")
+                    label.form__block
+                      span.form__title Введите ваш email
+                      .form__part
+                        +icon('envelope', 'form__icon')
+                        input.form__input(type='email' placeholder="info@stady.com" name="email")
+                  .form__row
+                    label.form__block.form__block_last
+                      span.form__title Сообщение к письму
+                      .form__part
+                        +icon('message', 'form__icon')
+                        textarea.form__input.form__input_last(placeholder="Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса" name="text")
+
+                  input.form__button(type='submit' value='Отправить' name='button')
+
+      footer.footer
+        .container
+          .footer__content
+            .footer__left
+              .footer__copy &copy; 2020
+              .footer__unit
+                .footer__name Камаева Ася
+                .footer__desc Личный сайт веб-разработчика
+
+            .footer__right
+              nav.nav.footer__nav
+                - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+                ul.nav__list
+                  each item in items
+                    li.nav__item
+                      a(href='#').nav__link #{item}
+              .footer__part
+                .footer__part_left
+                  p.footer__comment Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+                  ul.footer__list
+                    - var icons = ['insta', 'vk', 'github']
+                    each item in icons
+                      li.footer__item
+                        a(href='').footer__link
+                          +icon(`${item}`, 'footer__icon', '#fff')
+                .footer__part_right
+                  .footer__quote Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+                  .footer__quote_author Martin Golding
+              
+
+        
+
+
+
+
+
+              
+
+
+              
+
+
+
 
       

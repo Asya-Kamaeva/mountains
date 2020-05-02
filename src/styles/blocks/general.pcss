@@ -1,0 +1,74 @@
+.general{
+    height: 100vh;
+    margin-bottom: 180px;
+
+
+    &_section{
+background-image: url(/src/images/content/mountain.png);
+background-size: cover;
+background-position: center;
+    }
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 90vh;
+    }
+
+    &__part{
+        height: 75%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__preview{
+opacity: 0.4;
+font-family: "Open Sans";
+font-size: 18px;
+font-weight: 600;
+line-height: 30px;
+text-align: center;
+margin-bottom: 33px;
+    }
+
+    &__name{
+font-family: "Open Sans";
+font-size: 72px;
+font-weight: 800;
+line-height: 60px;
+    }
+
+    &__scroll {
+        display: flex;
+        height: 25%;
+        align-items: center;
+        justify-content: center;
+
+        &:hover{
+            opacity: 0.7;
+        }
+
+        &_text{
+            font-family: "Open Sans";
+font-size: 18px;
+font-weight: 600;
+line-height: 30px;
+margin-right: 15px;
+        }
+
+        &_img{
+            width: 30px;
+            height: 30px;
+        }
+
+        &_link{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+}
