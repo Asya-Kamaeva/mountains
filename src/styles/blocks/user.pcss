@@ -4,10 +4,27 @@ flex-direction: column;
 width: 43%;
 align-items: center;
 
+@include desktop{
+    width: 37%;
+}
+
+@include tablets{
+    width: 45%;
+}
+
+@include phones{
+    width: 100%;
+    margin-bottom: 10%;
+}
+
 &__img{
     width: 200px;
     height: 200px;
      margin-bottom: 80px;
+
+     @include tablets{
+         margin-bottom: 65px;
+     }
    
 }
 
@@ -33,11 +50,13 @@ line-height: 30px;
     &_left{
 opacity: 0.3;
 width: 150px;
+
+@include tablets{
+    width: 110px;
+}
     }
 
-/* &_right{
 
-} */
 
 }
 

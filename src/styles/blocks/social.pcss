@@ -1,9 +1,15 @@
 .social{
 
+   
+
     &__list{
-        width: 15%;
-        display: flex;
-        justify-content: center;
+      grid-column: 3/4;
+display: flex;
+justify-content: space-evenly;
+
+ @include phones{
+        display: none;
+    }
     }
 
     &__item{

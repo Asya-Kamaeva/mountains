@@ -1,4 +1,8 @@
 include ./mixins.pug
+include ./skills.pug
+include ./works.pug
+
+
 
 <!DOCTYPE html>
 html(lang="en")
@@ -10,182 +14,223 @@ html(lang="en")
   body
     .wrapper
       .maincontent
-        .general_section
-          section.general
-            .container
-              header.header
-                a.header__logo(href='#') АК
-                nav.nav
-                  - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
-                  ul.nav__list
-                    each item in items
-                      li.nav__item
-                        a(href='#').nav__link #{item}
-                ul.social__list
-                  - var icons = ['insta', 'vk', 'github']
-                    each item in icons
-                      li.social__item
-                        a(href='').social__link
-                          +icon(`${item}`, 'social__icon', '#464d62')
-              .general__content
-                .general__part
-                  span.general__preview Личный сайт<br>веб разработчика
-                  span.general__name Камаевой Аси
+        .general__section
+          .parallax
+              .parallax__layer(data-speed='0.1')
+                +image('parallax/sky-0.png' , 'parallax__image')
+              .parallax__layer(data-speed='0.25')
+                +image('parallax/sky-1.png' , 'parallax__image')
+              .parallax__layer(data-speed='0.35')
+                +image('parallax/sky-2.png' , 'parallax__image')
+              .parallax__layer(data-speed='0.45')
+                +image('parallax/sky-3.png' , 'parallax__image')
+              .parallax__layer(data-speed='0.55')
+                +image('parallax/sky-4.png' , 'parallax__image')
+              .parallax__layer(data-speed='0.65')
+                +image('parallax/sky-5.png' , 'parallax__image')
+              .parallax__layer(data-speed='0.75')
+                +image('parallax/sky-6.png' , 'parallax__image')
+              .parallax__content
+              .triangles
+                .tringles__block
+                  svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none" fill="#fff")
+                    polygon(points="0,0 0,100 1000,100 1000,90")
+                  svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none" fill="#fff")
+                    polygon(points="0,100 1000,100 1000,0 0,90")
+          .general__forparallax
+            section.general
+              .container
+                header.header
+                  a.header__logo(href='#') АК
+                  nav.nav
+                    - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+                      ul.nav__list
+                        each item in items
+                          li.nav__item
+                            a(href='#').nav__link #{item}
+                  ul.social__list
+                    - var icons = ['insta', 'vk', 'github']
+                      each item in icons
+                        li.social__item
+                          a(href='').social__link
+                            +icon(`${item}`, 'social__icon', '#464d62')
+                  a.hamburger(href="#")
+                    span.hamburger__menu
+                .general__content
+                  .general__part
+                    span.general__preview Личный сайт<br>веб разработчика
+                    span.general__name Камаевой Аси
                 
-                a(href='').general__scroll 
-                  span.general__scroll_text Скролл
-                  .general__scroll_img
-                    +icon('scroll', 'general__scroll_link', '#464d62')         
+                  a(href='').general__scroll 
+                    span.general__scroll_text Скролл
+                    .general__scroll_img
+                      +icon('scroll', 'general__scroll_link', '#464d62')         
 
-          section.about
-            .container
-              .about__content
-                .user
-                  .user__img
-                    +image('content/user.jpg', 'user__pic')
-                  ul.user__desc
-                    -
-                      var user =[
-                        ['Проживаю', 'в Подмосковье'],
-                        ['Возраст', '29 лет'],
-                        ['Родилась', '29 марта 1991г.'],
-                      ]
-                    each item in user
-                      li.user__string
-                        span.user__string_left #{item[0]}
-                        span.user__string_right #{item[1]}
+            section.about
+              .container
+                .about__content
+                  .user
+                    .user__img
+                      +image('content/user.jpg', 'user__pic')
+                    ul.user__desc
+                      -
+                        var user =[
+                          ['Проживаю', 'в Подмосковье'],
+                          ['Возраст', '29 лет'],
+                          ['Родилась', '29 марта 1991г.'],
+                        ]
+                      each item in user
+                        li.user__string
+                          span.user__string_left #{item[0]}
+                          span.user__string_right #{item[1]}
 
 
-                .about__right
+                  .about__right
 
-                  p.about__preview Привет, меня зовут
-                  h2.about__name Камаева Ася
-                  p.about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                  p.about__ps Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+                    p.about__preview Привет, меня зовут
+                    h2.about__name Камаева Ася
+                    p.about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                    p.about__ps Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+        
         section.skills
           .container
-            .skills__part
-              .skills__img
-                +image('content/backpack.png', 'skills__image')
-              .skills__content
-                h3.skills__title Чем я могу быть полезна вам
-                article.skills__text Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-
-                ul.skills__unit
-                  li.skills__string Front-end
-                    ul.skills__list
-                      - var skills = ['HTML5', 'CSS3', 'JavaScript', 'Jquery и Vue.js']
-                      each item in skills
-                        li.skills__item
-                          .skill
-                            svg(viewBox="0 0 100 100").skill__circle-shape
-                              circle(cx="50" cy="50" r="40").skill__circle.skill__circle_under
-                              circle(cx="50" cy="50" r="40" ref="color-circle" stroke="url(#gradient)" transform='rotate(325 50 50)').skill__circle.skill__circle_above
-                              linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
-                                stop(offset="0%" stop-color="#5500f2")
-                                stop(offset="100%" stop-color="#8f00ef")
-                            span.skills__name #{item}
-                          
-                  li.skills__string Workflow
-                    ul.skills__list
-                      - var skills = ['GIT', 'Terminal', 'Gulp', 'Webpack']
-                      each item in skills
-                        li.skills__item
-                          .skill
-                            svg(viewBox="0 0 100 100").skill__circle-shape
-                              circle(cx="50" cy="50" r="40").skill__circle.skill__circle_under
-                              circle(cx="50" cy="50" r="40" ref="color-circle" stroke="url(#gradient)" transform='rotate(325 50 50)').skill__circle.skill__circle_above
-                              linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
-                                stop(offset="0%" stop-color="#5500f2")
-                                stop(offset="100%" stop-color="#8f00ef")
-                            span.skills__name #{item}
-                
-                
-
-
+              .skills__part
+                  .skills__img
+                      +image('content/backpack.png', 'skills__image')
+                  .skills__content
+                      h2.skills__title Чем я могу быть полезна вам
+                      article.skills__text Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+                      #skills-script
+        
         section.works
           .container
             h2.works__title Мои работы
             .works__content
-              .works__left
-                .works__preview
-                  +image('content/preview.png', 'preview__image')
-                .works__control
-                  a(href='').works__control_up.works__control_block &and;
-                  a(href='').works__control_down.works__control_block &or;
-              .works__number 4
-              .works__info
-                ul.works__list
-                  - var list = ['HTML', 'CSS', 'JavaScript']
-                  each item in list
-                    li.works__item  
-                      a(href='#').works__item_name #{item}
-
-                
-                .works__caption Сайт школы образования
-                .works__desc Эта дама проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                a(href='#').works__link 
-                  +icon('link', 'works__icon', '#586ed3')
-                  .works__link_title Посмотреть сайт
+              #slider-component
+              
+             
 
         .feeds__budda
-          section.feeds    
-            .container
-              .feeds__content
-                .feeds__caption
-                  h2.feeds__title Что обо мне говорят
-                  .feeds__controls
-                    a(href='#').feeds__btn.feeds__btn_left &lt;
-                    a(href='#').feeds__btn.feeds__btn_right &gt;
-                .feeds__unit
-                  .feeds__block 
-                    .feeds__block_left
-                      +icon('quote', 'feeds__quote', '#464d62')
-                    .feeds__block_right
-                      .feeds__text Эта дама проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                      .feeds__user
-                        .feeds__img
-                          +image('content/feeds1.png', 'feeds__icon')
-                        .feeds__contact
-                          .feeds__name Ковальчук Дмитрий
-                          .feeds__position Основатель Loftschool
-                  .feeds__block 
-                    .feeds__block_left
-                      +icon('quote', 'feeds__quote', '#464d62')
-                    .feeds__block_right
-                      .feeds__text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-                      .feeds__user
-                        .feeds__img
-                          +image('content/feeds2.png', 'feeds__icon')
-                        .feeds__contact
-                          .feeds__name Владимир Сабанцев
-                          .feeds__position Преподаватель
+          .triangles__budda
+                .tringles__block
+                  svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none" fill="#fff")
+                    polygon(points="0,0 1000,0 1000,100")
+                  svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none" fill="#fff")
+                    polygon(points="0,0 1000,0 0,100")
+          .parallax__budda
+            .parallax__layer__budda(data-speed='0.1')
+              //- +image('parallax/budda-0.png' , 'parallax__image')
+            .parallax__layer__budda(data-speed='0.25')
+              +image('parallax/budda-1.png' , 'parallax__image')
+            .parallax__layer__budda(data-speed='0.35')
+              +image('parallax/budda-2.png' , 'parallax__image')
+            .parallax__layer__budda(data-speed='0.45')
+              +image('parallax/budda-3.png' , 'parallax__image')
+            .parallax__layer__budda(data-speed='0.55')
+              +image('parallax/budda-4.png' , 'parallax__image')
+            .parallax__layer__budda(data-speed='0.65')
+              +image('parallax/budda-4.png' , 'parallax__image')
+            .parallax__layer__budda(data-speed='0.65')
+              +image('parallax/budda-4.png' , 'parallax__image')
+            .parallax__layer__budda(data-speed='0.75')
+              +image('parallax/budda-5.png' , 'parallax__image')
+            //- .parallax__content_budda
+              
+              
+          .feeds__forparallax
+            section.feeds    
+              .container
+                .feeds__content
+                  .feeds__caption
+                    h2.feeds__title Что обо мне говорят
+                  
+                    .feeds__controls
+                      a(v-on:click.prevent="slidePrev" href='#').feeds__btn.feeds__btn_left &lt;
+                      a(v-on:click.prevent="slideNext" href='#').feeds__btn.feeds__btn_right &gt;
+                  
+                  template(id="app")
+                    hooper(:settings="hooperSettings" ref="carousel").feeds__unit
+                      slide.feeds__slide
+                        .feeds__block
+                          .feeds__block_left
+                            +icon('quote', 'feeds__quote', '#464d62')
+                          .feeds__block_right
+                            .feeds__text Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                            .feeds__user
+                              .feeds__img
+                                +image('content/feeds1.png', 'feeds__icon')
+                              .feeds__contact
+                                .feeds__name Ковальчук Дмитрий
+                                .feeds__position Основатель Loftschool
+                        
+                          
+                      slide.feeds__slide
+                        
+                        .feeds__block
+                          .feeds__block_left
+                            +icon('quote', 'feeds__quote', '#464d62')
+                          .feeds__block_right
+                            .feeds__text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                            .feeds__user
+                              .feeds__img
+                                +image('content/feeds2.png', 'feeds__icon')
+                              .feeds__contact
+                                .feeds__name Вова Сабанцев
+                                .feeds__position Преподаватель
 
-          section.contacts
-            .container
-              .contacts__content
-                h2.contacts__title Связаться со мной
+                      slide.feeds__slide
+                        
+                        .feeds__block
+                          .feeds__block_left
+                            +icon('quote', 'feeds__quote', '#464d62')
+                          .feeds__block_right
+                            .feeds__text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                            .feeds__user
+                              .feeds__img
+                                +image('content/feeds2.png', 'feeds__icon')
+                              .feeds__contact
+                                .feeds__name Вася Пупкин
+                                .feeds__position Преподаватель
+                      
+                      slide.feeds__slide
+                        .feeds__block
+                          .feeds__block_left
+                            +icon('quote', 'feeds__quote', '#464d62')
+                          .feeds__block_right
+                            .feeds__text Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                            .feeds__user
+                              .feeds__img
+                                +image('content/feeds1.png', 'feeds__icon')
+                              .feeds__contact
+                                .feeds__name Владимир Путин
+                                .feeds__position Основатель Loftschool
+                    
+            section.contacts
+              .container
+              
+                .contacts__content
+                  h2.contacts__title Связаться со мной
 
-                form.form
-                  .form__row
-                    label.form__block
-                      span.form__title Введите ваше имя
-                      .form__part
-                        +icon('user', 'form__icon')
-                        input.form__input(type="text" placeholder="Ковальчук Дмитрий" name="login")
-                    label.form__block
-                      span.form__title Введите ваш email
-                      .form__part
-                        +icon('envelope', 'form__icon')
-                        input.form__input(type='email' placeholder="info@stady.com" name="email")
-                  .form__row
-                    label.form__block.form__block_last
-                      span.form__title Сообщение к письму
-                      .form__part
-                        +icon('message', 'form__icon')
-                        textarea.form__input.form__input_last(placeholder="Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса" name="text")
+                  form.form
+                    .form__row
+                      label.form__block
+                        span.form__title Введите ваше имя
+                        .form__part
+                          +icon('user', 'form__icon')
+                          input.form__input(type="text" placeholder="Ковальчук Дмитрий" name="login")
+                      label.form__block
+                        span.form__title Введите ваш email
+                        .form__part
+                          +icon('envelope', 'form__icon')
+                          input.form__input(type='email' placeholder="info@stady.com" name="email")
+                    .form__row
+                      label.form__block.form__block_last
+                        span.form__title Сообщение к письму
+                        .form__part
+                          +icon('message', 'form__icon')
+                          textarea.form__input.form__input_last(placeholder="Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса" name="text")
 
-                  input.form__button(type='submit' value='Отправить' name='button')
+                    input.form__button(type='submit' value='Отправить' name='button')
 
       footer.footer
         .container
@@ -197,11 +242,11 @@ html(lang="en")
                 .footer__desc Личный сайт веб-разработчика
 
             .footer__right
-              nav.nav.footer__nav
+              nav.footer__nav
                 - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
-                ul.nav__list
+                ul.footer__nav_list
                   each item in items
-                    li.nav__item
+                    li.footer__nav_item
                       a(href='#').nav__link #{item}
               .footer__part
                 .footer__part_left
@@ -216,7 +261,7 @@ html(lang="en")
                   .footer__quote Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
                   .footer__quote_author Martin Golding
               
-
+    
         
 
 

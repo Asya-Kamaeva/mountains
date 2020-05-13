@@ -6,15 +6,39 @@
     color: #fff;
 
     &__content{
-        display: flex;
-        justify-content: space-between;
+       
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr 2fr;
+        grid-template-rows: 1fr 1fr 1fr 0.5fr;
+        grid-gap: 2% 1%;
+
+        @include desktop{
+            grid-template-columns: 1.5fr 1fr 2fr 2fr;
+        }
+
+        @include phones{
+            display: flex;
+            flex-direction: column;
+        }
 
     }
 
     &__left{
-        width: 30%;
-        display: flex;
-        justify-content: space-between;
+      
+        grid-column: 1/3;
+        grid-row: 1/5;
+        display: grid;
+
+        @include desktop{
+            grid-column: 1/2;
+            width: 100%;
+        }
+
+        @include phones{
+            width: 100%;
+            text-align: center;
+        }
+        
     }
 
     &__copy{
@@ -23,23 +47,58 @@
         font-size: 48px;
         font-weight: 600;
         line-height: 30px;
-        width: 45%;
+      
+        grid-column: 1/2;
+        grid-row: 1/5;
+
+        @include desktop{
+            grid-row: 1/2;
+        }
+
+        @include tablets{
+            font-size: 36px;
+            white-space: nowrap;
+        }
+
+        @include phones{
+            font-size: 48px;
+            margin-bottom: 5%;
+        }
 
     }
 
     &__unit{
-        width: 45%;
-        display: flex;
-        flex-direction: column;
+        
+        display: grid;
+        grid-column: 2/3;
+        grid-row: 1/2;
+        padding-left: 5%;
+
+        @include desktop{
+        grid-column: 1/2;
+        grid-row: 2/5;
+        padding-left: 0;
+        align-content: center;
+       
+        
+        }
+
+        @include phones{
+            margin-bottom: 8%;
+        }
     }
 
     &__name{
         font-size: 18px;
         font-weight: 700;
-        line-height: 30px;
         text-transform: uppercase;
         font-family: "Open Sans";
-        margin-bottom: 20px;
+
+        @include desktop{
+            padding-bottom: 10px;
+        }
+        
+       
     }
 
     &__desc{
@@ -47,36 +106,121 @@
         font-size: 16px;
         font-weight: 400;
         font-family: "Open Sans";
+       
     }
 
     &__right{
-        width: 65%;
-        display: flex;
-        flex-direction: column;
+        
+        grid-column: 3/5;
+        grid-row: 1/5;
+        display: grid;
+
+        @include desktop{
+            grid-column: 2/5;
+        }
+
+        @include phones{
+            display: flex;
+            flex-direction: column;
+           
+        }
     }
 
     &__nav{
         margin-bottom: 20px;
+        grid-column: 3/5;
+        grid-row: 1/2;
+
+        &_list{
+            display: flex;
+            justify-content: space-between;
+            font-family: "Open Sans";
+            font-size: 16px;
+            font-weight: 400;
+
+            @include tablets{
+                width: 100%;
+                grid-gap: 5px;
+                display: inline-grid;
+                grid-template-columns: 25% 25% 25% 25%;
+                grid-template-rows: 1fr 1fr;
+
+            }
+
+            @include phones{
+                display: grid;
+                grid-template-columns: 50% 50%;
+                grid-template-rows: 1fr 1fr 1fr;
+            }
+            
+        }
+
+        &_item{
+            
+            &:hover{
+            opacity: 0.7;
+            color: #fff;
+            }
+
+            @include tablets{
+                margin-right: 15px;
+                white-space: nowrap;
+            }
+
+            @include phones{
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 12%;
+                text-align: center;
+            }
+        }
     }
 
     &__part{
-        display: flex;
+        
         justify-content: space-between;
         font-size: 16px;
         font-weight: 400;
+        display: grid;
+         grid-column: 3/5;
+        grid-row: 2/5;
 
-        &_left{
-            width: 45%;
+        @include phones{
             display: flex;
             flex-direction: column;
+            justify-content: center;
+        }
+
+        &_left{
+            width: 100%;
+            grid-column: 3/4;
+            grid-row: 2/4;
+
+            @include desktop{
+                padding-right: 10px;
+            }
+
+            @include tablets{
+                grid-column: 3/5;
+                grid-row: 2/3;
+                margin-bottom: 5%;
+            }
+
+            @include phones{
+                margin-bottom: 8%;
+            }
             
         }
 
         &_right{
-            width: 45%;
-            display: flex;
-            flex-direction: column;
-            
+            width: 100%;
+           
+             grid-column: 4/5;
+            grid-row: 2/5;
+            @include tablets{
+                grid-column: 3/5;
+                grid-row: 3/5;
+            }
             
         }
     }
@@ -84,6 +228,10 @@
     &__comment{
         margin-bottom: 15px;
         opacity: 0.3;
+
+        @include phones{
+            margin-bottom: 5%;
+        }
     }
 
     &__quote{
@@ -99,6 +247,10 @@
     &__list{
         width: 100%;
         display: flex;
+
+        @include phones{
+            justify-content: center;
+        }
        
     }
 

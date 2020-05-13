@@ -1,26 +1,73 @@
 .skills{
 
-    margin-top: 10%;
+    margin-top: 7%;
     margin-bottom: 8%;
+    width: 100%;
+
+    @include tablets{
+      margin-bottom: 3%;
+    }
 
     &__part{
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
         width: 100%;
+        
+
+        @include tablets{
+           grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
+        }
+
+        @include phones{
+          grid-template-rows: 1fr 1fr 2fr 1fr;
+        }
     }
 
     &__img{
-        width: 40%;
-        margin-top: 10%;
+      grid-column: 1 / 2;
+      grid-row: 2 / 4;
+
+      @include tablets{
+      grid-column: 2 / 4;
+      grid-row: 4/6;
+      margin-left: 30%;
+      }
+
+      @include phones{
+        margin-left: 0;
+      }
+       
     }
 
     &__content{
-        width: 60%;
-        display: flex;
-        flex-direction: column;
+       grid-column: 2 / 4;
+      grid-row: 1 / 4;
+      display: grid;
+
+      @include tablets{
+        grid-column: 1 / 5;
+      grid-row: 1 / 4;
+      justify-content: center;
+      
+      }
+       
     }
 
     &__title{
         margin-bottom: 5%;
+
+        @include tablets{
+          grid-column: 2 / 4;
+      grid-row: 1 / 2;
+      text-align: center;
+        }
+
+        @include phones{
+          grid-column: 1/5;
+          text-align: center;
+        }
     }
 
     &__text{
@@ -31,6 +78,23 @@
         font-weight: 600;
         line-height: 30px;
         width: 70%;
+
+        @include desktop{
+          width: 85%;
+
+        }
+
+        @include tablets{
+          grid-column: 2 / 4;
+      grid-row: 2 / 3;
+      width: 100%;
+      text-align: center;
+        }
+
+        @include phones{
+          grid-column: 1/5;
+          text-align: center;
+        }
     }
 
     &__unit{
@@ -38,24 +102,55 @@
         flex-direction: column;
         justify-content: right;
         padding-left: 8%;
+        width: 90%;
+
+        @include desktop{
+          width: 100%;
+          padding-left: 4%;
+        }
+
+        @include tablets{
+          grid-column: 1 / 5;
+      grid-row: 3/4;
+      padding-left: 0;
+        }
     }
 
     &__string{
         margin-bottom: 8%;
         font-size: 24px;
         font-weight: 700;
+
+        @include tablets{
+          margin-bottom: 4%;
+          text-align: center;
+        }
     }
 
     &__list{
         display: flex;
         padding-top: 3%;
         justify-content: space-between;
+
+        @include tablets{
+          justify-content: space-around;
+        }
+
+        @include phones{
+          display: grid;
+          grid-template-columns: 50% 50%;
+          grid-template-rows: 50% 50%;
+        }
     }
 
     &__item{
 
         &:last-child{
             margin-right: 0;
+        }
+
+        @include phones{
+          text-align: center;
         }
     
     }
@@ -81,6 +176,11 @@
   position: relative;
   width: 130px;
   height: 130px;
+
+  @include phones{
+    left: 50%;
+    transform: translatex(-50%);
+  }
 }
 
 .skill__circle {
@@ -91,13 +191,13 @@
   }
   &_above {
     stroke-width: 8px;
-    stroke-dasharray: 120;
+    stroke-dasharray: 251;
     stroke-dashoffset: 80;
   }
 }
 .skill__circle_above{
   stroke-width: 9px;
-  stroke-dasharray: 125;
+  stroke-dasharray: 251;
 }
 
 .skill__circle_under {

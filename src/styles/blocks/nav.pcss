@@ -1,7 +1,15 @@
 .nav{
 
+    grid-column: 2/3;
+    text-align: center;
+
+    @include tablets{
+        display: none;
+    }
+
 &__list{
     display: flex;
+    justify-content: space-evenly;
     font-family: "Open Sans";
 font-size: 16px;
 font-weight: 400;
@@ -9,7 +17,7 @@ line-height: 30px;
 }
 
 &__item{
-    margin-right: 60px;
+    
 
     &:hover{
         opacity: 0.7;

@@ -1,0 +1,43 @@
+.hooper{
+    display: flex;
+    width: 70%;
+    overflow: hidden;
+
+    @include desktop{
+        width: 80%;
+    }
+
+     @include tablets{
+        width: 100%;
+    }
+}
+
+.hooper-list{
+    width: 100%;
+}
+
+.hooper-track{
+    display: flex;
+   
+}
+
+.hooper-slide{
+     display: flex;
+    min-width: 50%;
+    overflow: hidden;
+
+    @include phones{
+        min-width: 100%;
+    }
+}
+
+.hooper-sr-only {
+    position: absolute;
+    width: 0.0625rem;
+    height: 0.0625rem;
+    padding: 0;
+    margin: -0.0625rem;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}

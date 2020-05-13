@@ -1,0 +1,29 @@
+.triangles{
+    position: absolute;
+    bottom: 3%;
+    width: 100%;
+    z-index: 2;
+
+   
+
+    &__budda{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+
+     @include desktop{
+        display: none;
+    }
+    }
+
+    &__block{
+        display: flex;
+    }
+
+    &__item{
+        width: 50%;
+        height: 100px;
+    }
+
+}
