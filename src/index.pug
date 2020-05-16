@@ -211,26 +211,29 @@ html(lang="en")
                 .contacts__content
                   h2.contacts__title Связаться со мной
 
-                  form.form
+                  form.form#myForm
                     .form__row
                       label.form__block
                         span.form__title Введите ваше имя
                         .form__part
                           +icon('user', 'form__icon')
-                          input.form__input(type="text" placeholder="Ковальчук Дмитрий" name="login")
+                          input.form__input(type="text" placeholder="Ковальчук Дмитрий" name="name" required)
+                        .form__error
                       label.form__block
                         span.form__title Введите ваш email
                         .form__part
                           +icon('envelope', 'form__icon')
-                          input.form__input(type='email' placeholder="info@stady.com" name="email")
+                          input.form__input(type='email' placeholder="info@stady.com" name="email" required)
+                        .form__error
                     .form__row
                       label.form__block.form__block_last
                         span.form__title Сообщение к письму
                         .form__part
                           +icon('message', 'form__icon')
-                          textarea.form__input.form__input_last(placeholder="Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса" name="text")
+                          textarea.form__input.form__input_last(placeholder="Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса" name="comment" required)
+                        .form__error
 
-                    input.form__button(type='submit' value='Отправить' name='button')
+                    input.form__button(type='submit' value='Отправить' name='button')#sendButton
 
       footer.footer
         .container

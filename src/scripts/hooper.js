@@ -30,10 +30,13 @@ import Vue from 'vue';
     
           methods: {
             slidePrev: function (event) {
+              
               this.$refs.carousel.slidePrev();
+              
               console.dir(this.$refs);
             },
             slideNext: function (event) {
+              
               this.$refs.carousel.slideNext();
             }
           

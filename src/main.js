@@ -10,3 +10,7 @@ import "./scripts/parallax.js";
 import "./scripts/hooper.js";
 
 import "./scripts/works.js";
+
+import "./scripts/hamburger.js";
+
+import "./scripts/form.js";
