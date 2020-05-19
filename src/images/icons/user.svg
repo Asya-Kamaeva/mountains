@@ -21,7 +21,8 @@
 	</g>
 </g>
 <g>
-</g>
+</g>.       :errorText="validation.login__error('user.name')"
+             :errorText="validation.login__error('user.password')"
 <g>
 </g>
 <g>
